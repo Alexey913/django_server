@@ -11,7 +11,7 @@ class Client(models.Model):
 
     def __str__(self) -> str:
         return f'{self.name}'
-    
+
 class Goods(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(default=None)
@@ -22,12 +22,12 @@ class Goods(models.Model):
 
     def __str__(self) -> str:
         return f'{self.title}'
-    
+
 class Order(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     goods = models.ManyToManyField(Goods)
-    common_price = models.DecimalField(max_digits=100, decimal_places=2, default=0)
+    common_price = models.DecimalField(max_digits=65, decimal_places=2, default=0)
     date_create = models.DateField(default=timezone.now)
-   
+
     def __str__(self) -> str:
         return f'Заказ на сумму {self.common_price}'

@@ -54,7 +54,7 @@ def create_client(request):
                             )
             client.save()
             logger.info(f'Создан клиент {client} - {datetime.now()}')
-            return render(request, 'hw_app/sucsess.html', {'title': 'Запись добавлена', 'type': 'клиент', 'content': client})
+            return render(request, 'hw_app/sucsess.html', {'title': 'Запись добавлена', 'type': 'клиент', 'content': client, 'back': client})
     else:
         form = ClientForm()
     return render(request, 'hw_app/add_form.html', {'form': form, 'title': 'Добавить клиента'})
@@ -70,8 +70,8 @@ def create_goods(request):
                           quantity=form.cleaned_data['quantity'],
                           )
             goods.save()
-            logger.info(f'Создан клиент {goods} - {datetime.now()}')
-            return render(request, 'hw_app/sucsess.html', {'title': 'Запись добавлена', 'type': 'товар', 'content': goods})
+            logger.info(f'Создан заказ {goods} - {datetime.now()}')
+            return render(request, 'hw_app/sucsess.html', {'title': 'Запись добавлена', 'type': 'товар', 'content': goods, 'back': goods})
     else:
         form = GoodsForm()
     return render(request, 'hw_app/add_form.html', {'form': form, 'title': 'Добавить товар'})

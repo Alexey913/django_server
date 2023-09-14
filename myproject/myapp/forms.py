@@ -15,7 +15,7 @@ class AuthorForm(forms.Form):
     birthday = forms.DateField(initial=datetime.date.today(),
                                label='Дата рождения',
                                widget=forms.DateInput(attrs={'type': 'date'}))
-    
+
 
 class PostForm(forms.Form):
     title = forms.CharField(max_length=200,
@@ -25,10 +25,21 @@ class PostForm(forms.Form):
     date_publication = forms.DateField(initial=datetime.date.today(),
                                        label='Дата публикации',
                                        widget=forms.DateInput(attrs={'type': 'date'}))
-    author = forms.ChoiceField(label='Автор', choices=[(author.pk, f'{author.name} {author.surname}') for author in Author.objects.all()])
+    try:
+        author = forms.ChoiceField(label='Автор', choices=[(
+            author.pk, f'{author.name} {author.surname}') for author in Author.objects.all()])
+    except:
+        author = forms.CharField(max_length=200,
+                                label='Автор')
     category = forms.CharField(label='Категория', max_length=100)
 
+
 class CommentForm(forms.Form):
-    author = forms.ChoiceField(label='Автор', choices=[(author.pk, f'{author.name} {author.surname}') for author in Author.objects.all()])
+    try:
+        author = forms.ChoiceField(label='Автор', choices=[(
+            author.pk, f'{author.name} {author.surname}') for author in Author.objects.all()])
+    except:
+        author = forms.CharField(max_length=200,
+                                label='Автор')
     comment = forms.CharField(widget=forms.Textarea,
-                                label='Текст комментария')
+                              label='Текст комментария')

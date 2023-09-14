@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block content %}
-
 <h1>Заказы клиента {{ client }}</h1>
 
     <table border="1" cellpadding="5" cellspacing="5">
@@ -19,7 +18,7 @@
         {% for order in orders %}
             <tr>
                 <td> Заказ № {{ order.pk }} </td>
-                <td> 
+                <td>
                     {% for goods in order.goods.all %}
                     <a href="{% url 'goods_description' goods.pk %}">{{ goods.title }} - {{ goods.price }} руб.</a></br>
                     {% endfor %}

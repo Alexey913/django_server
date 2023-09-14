@@ -16,7 +16,10 @@ class GoodsForm(forms.Form):
 
 
 class OrderForm(forms.Form):
-    goods = forms.ChoiceField(label='Добавить товар', choices=[(goods.pk, f'{goods.title} {goods.price}') for goods in Goods.objects.all()])
+    try:
+        goods = forms.ChoiceField(label='Добавить товар', choices=[(goods.pk, f'{goods.title} {goods.price}') for goods in Goods.objects.all()])
+    except:
+        goods = forms.CharField(max_length=65, label='Название товара')
 
 class ImageForm(forms.Form):
     image = forms.ImageField(label='Добавить фото')

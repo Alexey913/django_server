@@ -1,0 +1,917 @@
+ERROR 2023-09-14 09:05:04,917 log 2 140146942896000 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'al913$default.hw_app_client' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 110, in index
+    return render(request, 'hw_app/client_list.html', {'clients': clients})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'al913$default.hw_app_client' doesn't exist")
+ERROR 2023-09-14 10:14:36,457 log 2 139716130568064 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'al913$default.hw_app_client' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 110, in index
+    return render(request, 'hw_app/client_list.html', {'clients': clients})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'al913$default.hw_app_client' doesn't exist")
+ERROR 2023-09-14 10:14:38,104 log 2 139716130568064 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'al913$default.hw_app_client' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 110, in index
+    return render(request, 'hw_app/client_list.html', {'clients': clients})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'al913$default.hw_app_client' doesn't exist")
+ERROR 2023-09-14 10:14:45,121 log 2 139716130568064 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'al913$default.hw_app_client' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 110, in index
+    return render(request, 'hw_app/client_list.html', {'clients': clients})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'al913$default.hw_app_client' doesn't exist")
+WARNING 2023-09-14 10:29:03,603 log 2 140286958548864 Not Found: /create_client
+WARNING 2023-09-14 10:29:03,791 log 2 140286958548864 Not Found: /favicon.ico
+ERROR 2023-09-14 10:29:23,569 log 2 140286958548864 Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'al913$default.django_session' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 441, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 109, in form_valid
+    auth_login(self.request, form.get_user())
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/auth/__init__.py", line 118, in login
+    request.session.cycle_key()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 304, in cycle_key
+    self.create()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'al913$default.django_session' doesn't exist")
+ERROR 2023-09-14 10:29:34,655 log 2 140286958548864 Internal Server Error: /admin/login/
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'al913$default.django_session' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 441, in login
+    return LoginView.as_view(**defaults)(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 109, in form_valid
+    auth_login(self.request, form.get_user())
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/auth/__init__.py", line 118, in login
+    request.session.cycle_key()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 304, in cycle_key
+    self.create()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 598, in has_results
+    return compiler.has_results()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1530, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'al913$default.django_session' doesn't exist")
+ERROR 2023-09-14 10:31:24,650 log 2 140286958548864 Internal Server Error: /index
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1146, "Table 'al913$default.myapp_author' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./myapp/views.py", line 82, in index
+    return render(request, 'myapp/author_list.html', {'authors': authors})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1146, "Table 'al913$default.myapp_author' doesn't exist")
+ERROR 2023-09-14 10:32:24,204 log 2 140286958548864 Internal Server Error: /client/add
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 57, in create_client
+    return render(request, 'hw_app/sucsess.html', {'title': 'Запись добавлена', 'type': 'клиент', 'content': client})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'client_orders' with arguments '('',)' not found. 1 pattern(s) tried: ['client/(?P<client_id>[0-9]+)/\\Z']
+ERROR 2023-09-14 10:33:18,309 log 2 140343274755968 Internal Server Error: /client/add
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 57, in create_client
+    return render(request, 'hw_app/sucsess.html', {'title': 'Запись добавлена', 'type': 'клиент', 'content': client})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'client_orders' with arguments '('',)' not found. 1 pattern(s) tried: ['client/(?P<client_id>[0-9]+)/\\Z']
+ERROR 2023-09-14 10:54:02,895 log 2 140455644325760 Internal Server Error: /client/add
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 57, in create_client
+    return render(request, 'hw_app/sucsess.html', {'title': 'Запись добавлена', 'type': 'клиент', 'content': client})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'client_orders' with arguments '('',)' not found. 1 pattern(s) tried: ['client/(?P<client_id>[0-9]+)/\\Z']
+WARNING 2023-09-14 10:54:44,504 log 2 140455644325760 Not Found: /client/add/1
+ERROR 2023-09-14 11:11:58,750 log 2 140137353332608 Internal Server Error: /goods/add
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 74, in create_goods
+    return render(request, 'hw_app/sucsess.html', {'title': 'Запись добавлена', 'type': 'товар', 'content': goods})
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'client_orders' with arguments '('',)' not found. 1 pattern(s) tried: ['client/(?P<client_id>[0-9]+)/\\Z']
+WARNING 2023-09-14 11:12:08,807 log 2 140137353332608 Not Found: /goods/
+WARNING 2023-09-14 11:13:14,113 log 2 140137353332608 Not Found: /client/1/goods/1
+WARNING 2023-09-14 11:14:08,111 log 2 140137353332608 Not Found: /order/1/
+WARNING 2023-09-14 11:14:46,712 log 2 140137353332608 Not Found: /add_author
+WARNING 2023-09-14 11:20:00,968 log 2 140352354563968 Not Found: /order
+WARNING 2023-09-14 11:20:16,675 log 2 140352354563968 Not Found: /order/1
+ERROR 2023-09-14 11:20:21,684 log 2 140352354563968 Internal Server Error: /order/1/1
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 94, in change_order
+    for g in order.goods.all():
+AttributeError: 'NoneType' object has no attribute 'goods'
+ERROR 2023-09-14 11:25:55,931 log 2 139834254018432 Internal Server Error: /order/2/1
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 94, in change_order
+    for g in order.goods.all():
+AttributeError: 'NoneType' object has no attribute 'goods'
+ERROR 2023-09-14 11:40:58,660 log 2 139834254018432 Internal Server Error: /order/2/1
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/django_server/myproject/./hw_app/views.py", line 94, in change_order
+    for g in order.goods.all():
+AttributeError: 'NoneType' object has no attribute 'goods'
+ERROR 2023-09-14 11:42:17,022 log 2 139834254018432 Internal Server Error: /admin/hw_app/order/add/
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+MySQLdb.IntegrityError: (1048, "Column 'client_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1886, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1747, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1798, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1227, in save_model
+    obj.save()
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/al913/.virtualenvs/virtualenv/lib/python3.10/site-packages/MySQLdb/connections.py", line 255, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1048, "Column 'client_id' cannot be null")
+WARNING 2023-09-14 11:47:21,883 log 2 140314667526016 Forbidden (CSRF cookie not set.): /order/1/1
+WARNING 2023-09-14 11:49:54,751 log 2 140314667526016 Forbidden (CSRF cookie not set.): /order/1/1
+WARNING 2023-09-14 11:51:42,477 log 2 139753384118144 Forbidden (CSRF cookie not set.): /order/1/1
+WARNING 2023-09-14 11:52:09,264 log 2 139753384118144 Not Found: /favicon.ico
+WARNING 2023-09-14 11:52:16,459 log 2 139753384118144 Forbidden (CSRF cookie not set.): /order/1/1
+WARNING 2023-09-14 11:53:39,411 log 2 139695938328448 Forbidden (CSRF cookie not set.): /order/1/1
+WARNING 2023-09-14 11:54:31,981 log 2 139681890240384 Forbidden (CSRF cookie not set.): /order/1/1
+WARNING 2023-09-14 11:57:55,713 log 2 140359925774208 Forbidden (CSRF cookie not set.): /order/1/1
+WARNING 2023-09-14 12:14:30,334 log 2 140575085094784 Not Found: /favicon.ico

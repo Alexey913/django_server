@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
             name='Order',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('common_price', models.DecimalField(decimal_places=2, default=0, max_digits=100)),
+                ('common_price', models.DecimalField(decimal_places=2, default=0, max_digits=65)),
                 ('date_create', models.DateField(default=django.utils.timezone.now)),
                 ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='hw_app.client')),
                 ('goods', models.ManyToManyField(to='hw_app.goods')),
