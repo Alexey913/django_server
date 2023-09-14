@@ -47,6 +47,7 @@
         </style>
     </head>
     <body link="#947b00" vlink="d1b00a" alink="d1b00a">
+        {% csrf_token %}
         <table border="1" align="center" rules="rows" style="width:100%;">
             <tr>
                 <td>
@@ -61,7 +62,7 @@
                     <table border="1" bgcolor="#e6e6fa" cellpadding="10" width=100%>
                         <tr>
                             <td rowspan="2" class="gradient_main" valign = "top">
-                                
+
                                 {% block content %}
                                 <h2>Содержимое страницы</h2>
                                 <hr color="#ffe500">
