@@ -1,0 +1,46 @@
+{% extends 'hw_app/base.html' %}
+
+
+{% block title %}
+Заказы - {{ client }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Заказы клиента {{ client }}</h1>
+
+    <table border="1" cellpadding="5" cellspacing="5">
+        <tr align="center">
+            <td>Номер заказа</td>
+            <td>Состав заказа</td>
+            <td>Общая стоимость заказа</td>
+            <td>Изменить заказ</td>
+        </tr>
+        {% for order in orders %}
+            <tr>
+                <td> Заказ № {{ order.pk }} </td>
+                <td> 
+                    {% for goods in order.goods.all %}
+                    <a href="{% url 'goods_description' goods.pk %}">{{ goods.title }} - {{ goods.price }} руб.</a></br>
+                    {% endfor %}
+                </td>
+                <td>{{ order.common_price }} руб.</td>
+                <td><a href="{% url 'change_order' client.pk order.pk %}"> Изменить заказ </a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</br>
+    <table cellpadding="5" cellspacing="5">
+        <tr>
+            <td>
+                <a href="{% url 'orders_term' client.pk 7 %}"> Товары, купленные за неделю </a></br>
+            </td>
+            <td>
+                <a href="{% url 'orders_term' client.pk 30 %}"> Товары, купленные за месяц </a></br>
+            </td>
+            <td>
+                <a href="{% url 'orders_term' client.pk 365 %}"> Товары, купленные за год </a></br>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

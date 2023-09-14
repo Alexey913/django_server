@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Статьи автора {{ author }}</h1>
+
+    <table border="1">
+        {% for post in posts %}
+            <tr>
+                {% if post.publication %}
+                    <td><a href="{% url 'post_full' post.id %}">{{ post.title }}</a></td>
+                    <td>{{ post.get_summary }}</td>
+                {% else %}
+                    <td> {{ post.title }} </td>
+                    <td>Статья не опубликована</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

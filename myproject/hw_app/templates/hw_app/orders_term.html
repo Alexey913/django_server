@@ -1,0 +1,27 @@
+{% extends 'hw_app/base.html' %}
+
+
+{% block title %}
+Заказы за {{ term }} дней - {{ client }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Товары, купленные пользователем {{ client }} за {{ term }} дней</h1>
+
+    <table border="1" cellpadding="5" cellspacing="5">
+        <tr align="center">
+            <td>Купленный товар</td>
+            <td>Дата первого заказа за {{ term }} дней</td>
+        </tr>
+        {% for goods, date in goodses.items %}
+            <tr>
+                <td> 
+                    <a href="{% url 'goods_description' goods.pk %}"> {{ goods }} </a>
+                </td>   
+                <td>{{ date }}</td>
+            </tr> 
+        {% endfor %}
+    </table>
+
+{% endblock %}

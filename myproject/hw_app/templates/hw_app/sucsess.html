@@ -1,0 +1,13 @@
+{% extends 'hw_app/base.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<h1> {{ title}} </h1>
+    <h2>Добавлена запись - {{ type }}</h2>
+    <h3>{{ content }}</h3>
+    <a href="{% url 'client_orders' back.pk %}"><input type="submit" value="Вернуться"></a>
+{% endblock %}

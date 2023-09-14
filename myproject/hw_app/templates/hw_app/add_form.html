@@ -1,0 +1,15 @@
+{% extends 'hw_app/base.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<h1> {{ title }} </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+{% endblock %}

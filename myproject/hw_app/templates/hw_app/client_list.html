@@ -1,0 +1,21 @@
+{% extends 'hw_app/base.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Все клиенты</h1>
+
+    <table border="1">
+        {% for client in clients %}
+            <tr>
+                <td>{{ client }}</td>    
+                <td><a href="{% url 'client_orders' client.id %}"> Перейти к заказам </a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

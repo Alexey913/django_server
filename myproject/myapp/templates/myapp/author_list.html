@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<h1>Все авторы</h1>
+
+    <table border="1">
+        {% for author in authors %}
+            <tr>
+                <td>{{ author }}</td>    
+                <td><a href="{% url 'author_posts' author.id %}"> Перейти к статьям автора </a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

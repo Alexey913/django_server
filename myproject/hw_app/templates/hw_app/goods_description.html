@@ -1,0 +1,27 @@
+{% extends 'hw_app/base.html' %}
+
+
+{% block title %}
+    {{ goods.title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ goods.title }}</h1>
+
+    <h2>О товаре</h2>
+    <h4>{{ goods.description }}</h4>
+
+    <h2>Цена</h2>
+    <h4>{{ goods.price }} руб.</h4>
+
+    <h2>Количество на складе</h2>
+    <h4>{{ goods.quantity }} шт.</h4>
+
+    <h2>Загрузите изображение</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">Загрузить фото</button>
+    </form>
+
+{% endblock %}
